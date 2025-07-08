@@ -6,3 +6,4 @@
 
 # ignore build targets
 /lib
+/temp

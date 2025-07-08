@@ -1,7 +1,5 @@
 import { LogParams } from "../decorators/log-params.decorator";
 
-
-
 export class TestLogParams {
   x: number = 0
   y: string = ''

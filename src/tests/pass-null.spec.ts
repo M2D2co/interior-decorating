@@ -15,11 +15,11 @@ describe('TestPass Method Decorator', () => {
     })
 
     it('does nothing on non-null param', () => {
-      expect(example.oneParam('foo')).toEqual('okfoo')
+      expect(example.oneParamAll('foo')).toEqual('okfoo')
     })
 
     it('returns null on null param', () => {
-      expect(example.oneParam(null)).toBeNull()
+      expect(example.oneParamAll(null)).toBeNull()
     })
 
     it('does nothing if just the first param is null', () => {
@@ -37,6 +37,14 @@ describe('TestPass Method Decorator', () => {
   })
 
   describe('configured with any', () => {
+
+    it('does nothing on non-null param', () => {
+      expect(example.oneParamAny('foo')).toEqual('okfoo')
+    })
+
+    it('returns null on null param', () => {
+      expect(example.oneParamAny(null)).toBeNull()
+    })
 
     it('does nothing if both params are non-null', () => {
       expect(example.twoParamsAny(12, 'foo')).toEqual('ok')

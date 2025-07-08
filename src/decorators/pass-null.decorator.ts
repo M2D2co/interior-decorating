@@ -6,7 +6,7 @@
  * @param match match type (defaults to `all`)
  * @returns the Method Decorator
  */
-export function PassNull(match: 'any' | 'all' = 'all'): MethodDecorator {
+export function PassNull(match: 'any' | 'all' = 'any'): MethodDecorator {
   /**
    * @param target the object instance containing the decorated method -- allows modifying the object
    * @param methodName the name of the decorated method

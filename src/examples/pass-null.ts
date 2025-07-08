@@ -10,7 +10,12 @@ export class TestPassNull {
   }
 
   @PassNull()
-  oneParam(s: string) {
+  oneParamAny(s: string) {
+    return 'ok' + s
+  }
+
+  @PassNull('all')
+  oneParamAll(s: string) {
     return 'ok' + s
   }
 
