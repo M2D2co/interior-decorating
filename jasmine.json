@@ -1,0 +1,13 @@
+{
+  "spec_dir": "lib/tests",
+  "spec_files": [
+    "**/*[sS]pec.?(m)js",
+    "!**/*nospec.js"
+  ],
+  "env": {
+    "failSpecWithNoExpectations": false,
+    "stopSpecOnExpectationFailure": false,
+    "stopOnSpecFailure": false,
+    "random": false
+  }
+}

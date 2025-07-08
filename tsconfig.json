@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "lib": ["es6"],
+    "module": "commonjs",
+    "experimentalDecorators": true,
+    "noImplicitReturns": true,
+    "outDir": "lib",
+    "sourceMap": true,
+    "target": "es6",
+    "types": [
+      "node",
+      "jasmine"
+    ]
+  },
+  "compileOnSave": true,
+  "include": [
+    "src"
+, "spec"  ]
+}

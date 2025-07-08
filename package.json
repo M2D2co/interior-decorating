@@ -1,0 +1,20 @@
+{
+  "name": "interior-decorating",
+  "version": "1.0.0",
+  "description": "Example code for typescript decorators",
+  "author": "Michael Dowden <michael@andromedagalactic.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "test": "npm run build && jasmine --config=jasmine.json"
+  },
+  "engines": {
+    "node": "20"
+  },
+  "devDependencies": {
+    "@types/jasmine": "^5.1.8",
+    "@types/node": "^20.19.4",
+    "jasmine": "^5.8.0",
+    "typescript": "^5.8.3"
+  }
+}
