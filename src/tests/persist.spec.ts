@@ -1,7 +1,4 @@
 import { TestPersist } from "../examples/persist"
-import { LocalStorage } from 'node-localstorage'
-
-global.localStorage = new LocalStorage('./temp')
 
 describe('Persist Accessor Decorator', () => {
   let example: TestPersist
@@ -9,7 +6,7 @@ describe('Persist Accessor Decorator', () => {
 
   beforeEach(() => {
     example = new TestPersist()
-    localStorage = global.localStorage
+    localStorage = globalThis.localStorage
   })
 
   it('continues to get/set as expected', () => {
