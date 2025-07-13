@@ -3,6 +3,7 @@
 # ignore local config folders
 /.vscode
 /node_modules
+/angular/.vscode
 
 # ignore build targets
 /lib
