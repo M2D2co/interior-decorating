@@ -29,7 +29,6 @@ interface NgClassConstructor {
 type Measure = {
   measurementName: string // measurement name
   markStart: string // method name
-  markEnd?: string // method name
 }
 
 function setupMethod(constructor: any, methodName: string, measurement?: Measure) {
@@ -39,10 +38,9 @@ function setupMethod(constructor: any, methodName: string, measurement?: Measure
 
   constructor.prototype[methodName] = function(...args: any) {
     if(measurement) {
-      const _key = `${className}_${methodName}`
-      globalThis.performance.mark(_key)
       const _start = `${className}_${measurement.markStart}`
-      const _end = `${className}_${measurement.markEnd || methodName}`
+      const _end = `${className}_${methodName}`
+      globalThis.performance.mark(_end)
       if(!globalThis.performance.getEntriesByName(_start, 'mark')?.length){
         console.warn('Missing starting performance mark', _start)
         return
@@ -55,10 +53,9 @@ function setupMethod(constructor: any, methodName: string, measurement?: Measure
         _start,
         _end,
       )
-    } else {
-      const _key = `${className}_${methodName}_${index++}`
-      globalThis.performance.mark(_key)
     }
+    const _key = `${className}_${methodName}_${index++}`
+    globalThis.performance.mark(_key)
     if(original) {
       original.apply(this, args)
     }
