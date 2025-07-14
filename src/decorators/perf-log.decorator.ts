@@ -5,21 +5,20 @@
  * @param methodName the name of the decorated method
  * @param descriptor the config object of the decorated method or property - allows modifying the method
  */
-export function PerfLog(target: any, methodName: string, descriptor: TypedPropertyDescriptor<any>) {
-  const key = `${target.constructor.name}_${methodName}_${Date.now()}`
-
+export function PerfLog(target: any, methodName: string, descriptor: PropertyDescriptor) {
   const originalMethod = descriptor.value
 
   descriptor.value = function(...args: any[]) {
-    console.time(key)
+    const _key = `${target.constructor.name}_${methodName}_${globalThis.performance.now()}`
+    console.time(_key)
     const retVal = originalMethod.apply(this, ...args)
     if(retVal && typeof (retVal as PromiseLike<any>).then ===  'function') {
-      (retVal as PromiseLike<any>).then(value => {
-        console.timeEnd(key)
+      return (retVal as PromiseLike<any>).then(value => {
+        console.timeEnd(_key)
         return value
       })
     }
-    console.timeEnd(key)
+    console.timeEnd(_key)
     return retVal
   }
 }

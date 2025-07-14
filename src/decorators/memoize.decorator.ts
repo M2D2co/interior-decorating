@@ -1,5 +1,5 @@
 // Exported for testing purposes
-export const memo: any = {}
+export const memo: { [key: string]: any } = {}
 
 /**
  * Implements Memoization as a Method Decorator.
@@ -8,13 +8,11 @@ export const memo: any = {}
  * @param methodName the name of the decorated method
  * @param descriptor the config object of the decorated method or property - allows modifying the method
  */
-export function Memoize(target: any, methodName: string, descriptor: TypedPropertyDescriptor<any>) {
+export function Memoize(target: any, methodName: string, descriptor: PropertyDescriptor) {
   const originalMethod = descriptor.value
+  // const memo: { [key: string]: any } = {} // This is the correct way to build a closure-scoped memo
   descriptor.value = function(...args: any[]) {
     const _key = [target.constructor.name, methodName, ...args].map(o => o.toString()).join('_')
-    if(!memo[_key]) {
-      memo[_key] = originalMethod.apply(this, args)
-    }
-    return memo[_key]
+    return memo[_key] ?? ( memo[_key] = originalMethod.apply(this, args) )
   }
 }

@@ -5,10 +5,6 @@ export class TestAngularPerformance {
   x: number = 0
   y: string = ''
 
-  constructor() {
-    console.log('constructed')
-  }
-
   ngOnInit() {
     console.log('onInit')
   }

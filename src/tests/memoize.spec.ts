@@ -58,4 +58,13 @@ describe('Memoize Method Decorator', () => {
     })
   })
 
+  describe('calling objParams', () => {
+    it('receives the same exact object every time', () => {
+      const result1 = example.objParams(17, 'stuff')
+      const result2 = example.objParams(17, 'stuff')
+      expect(result2).toEqual(result1)
+      expect(result2).toBe(result1)
+    })
+  })
+
 })

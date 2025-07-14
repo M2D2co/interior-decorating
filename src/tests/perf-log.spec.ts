@@ -15,18 +15,18 @@ describe('LogParams Method Decorator', () => {
     expect(console.timeEnd).toHaveBeenCalledTimes(1)
   })
 
-  it('logs time on shortTime', () => {
+  it('logs time on shortTime', async () => {
     spyOn(console, 'time')
     spyOn(console, 'timeEnd')
-    example.shortTime()
+    await example.shortTime()
     expect(console.time).toHaveBeenCalledTimes(1)
     expect(console.timeEnd).toHaveBeenCalledTimes(1)
   })
 
-  it('logs time on longTime', () => {
+  it('logs time on longTime', async () => {
     spyOn(console, 'time')
     spyOn(console, 'timeEnd')
-    example.longTime()
+    await example.longTime()
     expect(console.time).toHaveBeenCalledTimes(1)
     expect(console.timeEnd).toHaveBeenCalledTimes(1)
   })

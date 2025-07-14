@@ -19,11 +19,16 @@ export class TestMemoize {
   }
 
   @Memoize
-  twoParams(n: number, s:string) {
+  twoParams(n: number, s: string) {
     this.getStuff()
     this.x = n
     this.y = s
     return 'two' + n + s
+  }
+
+  @Memoize
+  objParams(n: number, s: string) {
+    return { n, s }
   }
 
   getStuff() {

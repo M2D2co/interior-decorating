@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { AngularPerformance } from './angular-performance.decorator';
+import { environment } from '../environments/environment.development';
 
-@AngularPerformance()
+@AngularPerformance(!environment.production)
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet],
