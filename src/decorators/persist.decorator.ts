@@ -19,8 +19,7 @@ export function Persist(target: any, propertyKey: string, descriptor: PropertyDe
 
   const originalGetter = descriptor.get
   descriptor.get = function () {
-    const prop = originalGetter.call(this)
-    return !prop ? store.getItem(_key) : prop
+    return originalGetter.call(this) ?? store.getItem(_key)
   }
 
   const originalSetter = descriptor.set

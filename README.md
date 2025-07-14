@@ -1,9 +1,10 @@
 # Interior Decorating
-## Clean up your TypeScript code with Decorators
+
+## Remodel your TypeScript code with Decorators
 
 This repository supports the article _Interior Decorating_ with the full code examples and supporting unit tests.
 
-# Decorators
+## Decorators
 
 - [@LogParams](src/decorators/log-params.decorator.ts)
 - [@Memoize](src/decorators/memoize.decorator.ts)
